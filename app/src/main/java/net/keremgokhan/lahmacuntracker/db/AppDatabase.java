@@ -13,13 +13,13 @@ import net.keremgokhan.lahmacuntracker.db.converter.DateConverter;
 import net.keremgokhan.lahmacuntracker.db.entity.Lahmacun;
 import net.keremgokhan.lahmacuntracker.db.dao.LahmacunDao;
 
-@Database(entities = {Lahmacun.class, Consumption.class}, version = 1)
+@Database(entities = {Lahmacun.class, Consumption.class}, version = 1, exportSchema = false)
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase sInstance;
 
     @VisibleForTesting
-    public static final String DATABASE_NAME = "lahmacun-tracker-db";
+    private static final String DATABASE_NAME = "lahmacun-tracker-db";
 
     public abstract LahmacunDao lahmacunDao();
     public abstract ConsumptionDao consumptionDao();
