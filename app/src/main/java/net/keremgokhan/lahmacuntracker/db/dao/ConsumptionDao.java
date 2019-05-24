@@ -16,10 +16,10 @@ public interface ConsumptionDao {
     List<Consumption> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insert(Consumption consumption);
+    void insert(Consumption consumption);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertAll(Consumption... consumptions);
+    void insertAll(Consumption... consumptions);
 
     @Delete
     void delete(Consumption consumption);

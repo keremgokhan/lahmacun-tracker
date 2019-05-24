@@ -25,4 +25,9 @@ public class Consumption {
 
     @ColumnInfo(name = "consumed_on")
     public Date consumedOn;
+
+    public Consumption(int lahmacunId) {
+        this.lahmacunId = lahmacunId;
+        this.consumedOn = new Date();
+    }
 }

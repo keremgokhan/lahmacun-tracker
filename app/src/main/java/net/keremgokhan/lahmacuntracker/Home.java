@@ -11,7 +11,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import net.keremgokhan.lahmacuntracker.db.AppDatabase;
+import net.keremgokhan.lahmacuntracker.db.dao.ConsumptionDao;
 import net.keremgokhan.lahmacuntracker.db.dao.LahmacunDao;
+import net.keremgokhan.lahmacuntracker.db.entity.Consumption;
 import net.keremgokhan.lahmacuntracker.db.entity.Lahmacun;
 
 import java.util.List;
@@ -31,11 +33,30 @@ public class Home extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                //NewRecordDialogFragment dialog = new NewRecordDialogFragment();
+                //dialog.show(getSupportFragmentManager(), "New Record");
 
-                NewRecordDialogFragment dialog = new NewRecordDialogFragment();
-                dialog.show(getSupportFragmentManager(), "New Record");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+                        LahmacunDao lahmacunDao = db.lahmacunDao();
+
+                        List<Lahmacun> response = lahmacunDao.getLastLahmacun();
+                        Lahmacun lahmacun;
+                        if ( response.isEmpty() ) {
+                            lahmacun = new Lahmacun();
+                            lahmacun.name = "Lahmacun";
+                            lahmacunDao.insert(lahmacun);
+                        } else {
+                            lahmacun = response.get(0);
+                        }
+
+                        Consumption newConsumption = new Consumption(lahmacun.id);
+                        ConsumptionDao consumptionDao = db.consumptionDao();
+                        consumptionDao.insert(newConsumption);
+                    }
+                }).start();
             }
         });
     }

@@ -33,7 +33,7 @@ public class NewRecordDialogFragment extends DialogFragment {
                                 AppDatabase db = AppDatabase.getInstance(getActivity().getApplicationContext());
                                 LahmacunDao lahmacunDao = db.lahmacunDao();
                                 Lahmacun l = new Lahmacun();
-                                l.name = "Test";
+                                l.name = "Lahmacun";
                                 lahmacunDao.insert(l);
                             }
                         }).start();
