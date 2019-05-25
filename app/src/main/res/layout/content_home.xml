@@ -9,24 +9,184 @@
     tools:showIn="@layout/activity_home">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Since your last Lahmacun."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="12h 21m"
-        android:textSize="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        android:layout_marginBottom="32dp"
+        android:text="Since your last Lahmacun:"
+        app:layout_constraintBottom_toTopOf="@+id/yearTextView"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/dayProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="255dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="324dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/dayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom"
+        android:text="Day: "
+        app:layout_constraintBottom_toTopOf="@+id/dayProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/dayProgressBar" />
+
+    <ProgressBar
+        android:id="@+id/monthProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="255dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/dayTextView"
+        app:layout_constraintEnd_toEndOf="@+id/dayProgressBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dayProgressBar" />
+
+    <TextView
+        android:id="@+id/dayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="bottom"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/dayTextView"
+        app:layout_constraintStart_toEndOf="@+id/dayTextView" />
+
+    <TextView
+        android:id="@+id/monthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom"
+        android:text="Month: "
+        app:layout_constraintBottom_toTopOf="@+id/monthProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/monthProgressBar" />
+
+    <TextView
+        android:id="@+id/monthValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/monthProgressBar"
+        app:layout_constraintStart_toEndOf="@+id/monthTextView" />
+
+    <TextView
+        android:id="@+id/hourTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="bottom"
+        android:text="Hour: "
+        app:layout_constraintStart_toStartOf="@+id/hourProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/dayProgressBar" />
+
+    <TextView
+        android:id="@+id/hourValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="bottom"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/hourTextView"
+        app:layout_constraintStart_toEndOf="@+id/hourTextView" />
+
+    <ProgressBar
+        android:id="@+id/hourProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="255dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/dayProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/dayProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/hourTextView" />
+
+    <TextView
+        android:id="@+id/minuteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="bottom"
+        android:text="Minute: "
+        app:layout_constraintStart_toStartOf="@+id/minuteProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/hourProgressBar" />
+
+    <TextView
+        android:id="@+id/minuteValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="bottom"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/minuteTextView"
+        app:layout_constraintTop_toTopOf="@+id/minuteTextView" />
+
+    <ProgressBar
+        android:id="@+id/minuteProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="255dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/hourProgressBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/hourProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/minuteTextView" />
+
+    <ProgressBar
+        android:id="@+id/yearProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="255dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/monthTextView"
+        app:layout_constraintEnd_toEndOf="@+id/monthProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/monthProgressBar" />
+
+    <TextView
+        android:id="@+id/yearTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom"
+        android:text="Year: "
+        app:layout_constraintBottom_toTopOf="@+id/yearProgressBar"
+        app:layout_constraintStart_toStartOf="@+id/yearProgressBar" />
+
+    <TextView
+        android:id="@+id/yearValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:gravity="bottom"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/yearTextView"
+        app:layout_constraintStart_toEndOf="@+id/yearTextView" />
+
+    <TextView
+        android:id="@+id/secondTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Second: "
+        app:layout_constraintStart_toStartOf="@+id/minuteProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/minuteProgressBar" />
+
+    <TextView
+        android:id="@+id/secondValue"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/secondTextView"
+        app:layout_constraintTop_toTopOf="@+id/secondTextView" />
 
 </android.support.constraint.ConstraintLayout>

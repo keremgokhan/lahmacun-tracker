@@ -27,7 +27,7 @@ public class Home extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+        //AppDatabase db = AppDatabase.getInstance(getApplicationContext());
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            new Thread(new Runnable() {
+            /*new Thread(new Runnable() {
                 @Override
                 public void run() {
                     AppDatabase db = AppDatabase.getInstance(getApplicationContext());
@@ -93,7 +93,7 @@ public class Home extends AppCompatActivity {
                     });
 
                 }
-            }).start();
+            }).start();*/
             return true;
         }
 
