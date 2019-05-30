@@ -12,11 +12,12 @@ import java.util.List;
 
 @Dao
 public interface LahmacunDao {
-    @Query("SELECT * FROM lahmacun")
-    List<Lahmacun> getAll();
 
     @Query("SELECT * FROM lahmacun ORDER BY id DESC LIMIT 1")
-    List<Lahmacun> getLastLahmacun();
+    List<Lahmacun> getLast();
+
+    @Query("SELECT * FROM lahmacun")
+    List<Lahmacun> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Lahmacun lahmacun);

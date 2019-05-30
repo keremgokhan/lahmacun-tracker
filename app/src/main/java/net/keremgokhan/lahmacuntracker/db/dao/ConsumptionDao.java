@@ -12,6 +12,10 @@ import java.util.List;
 
 @Dao
 public interface ConsumptionDao {
+
+    @Query("SELECT * FROM consumption ORDER BY id DESC LIMIT 1")
+    List<Consumption> getLast();
+
     @Query("SELECT * FROM consumption")
     List<Consumption> getAll();
 
